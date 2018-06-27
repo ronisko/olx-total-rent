@@ -2,7 +2,7 @@
 // @name         OLX - total rent
 // @namespace    https://github.com/ronisko/olx-total-rent
 // @version      0.1
-// @updateURL    https://raw.githubusercontent.com/kmanijak/filmweb-seen-movies-hider/master/script.js
+// @updateURL    https://raw.githubusercontent.com/ronisko/olx-total-rent/master/script.js
 // @description  Show total rent of flat on OLX
 // @author       Bartosz Szymański
 // @match        https://www.olx.pl/nieruchomosci/mieszkania/wynajem/*

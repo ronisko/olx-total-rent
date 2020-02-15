@@ -26,21 +26,26 @@ GM_addStyle(
         var link = $(this).attr("href");
         var rent = "0 zł";
         if (link.startsWith("https://www.olx.pl")) {
-            var site = $.ajax({type: "GET", url: link, async: false}).responseText;
-            rent = $(site).find('th:contains("Czynsz (dodatkowo)")').parent().find('strong').text();
-        }
-
-        const rentDiv = document.createElement("div");
-        rentDiv.className = "space inlblk rel";
-        const rentP = document.createElement("p");
-        rentP.className = "price";
-        const rentStrong = document.createElement("strong");
-        var text = document.createTextNode(String(rent));
-        rentStrong.appendChild(text);
-        rentP.appendChild(rentStrong);
-        rentDiv.appendChild(rentP);
+            var appendToThisShit = $('td.wwnormal.tright.td-price')[x];
+            $.get(link,  // url
+                function (data, textStatus, jqXHR) {  // success callback
+                    rent = $(data).find('th:contains("Czynsz (dodatkowo)")').parent().find('strong').text();
+                    console.log(rent);
+                    const rentDiv = document.createElement("div");
+                    rentDiv.className = "space inlblk rel";
+                    const rentP = document.createElement("p");
+                    rentP.className = "price";
+                    const rentStrong = document.createElement("strong");
+                    var text = document.createTextNode(String(rent));
+                    rentStrong.appendChild(text);
+                    rentP.appendChild(rentStrong);
+                    rentDiv.appendChild(rentP);
         //var text = '<div class="wwnormal tright td-price">' +  + '</div>';
-        $('td.wwnormal.tright.td-price')[x].append(rentDiv);
+                   console.log($('td.wwnormal.tright.td-price')[x]);
+                   console.log(rentDiv);
+                   appendToThisShit.append(rentDiv);
+            });
+        }
         x++;
     });
 })();

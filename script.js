@@ -29,7 +29,7 @@ GM_addStyle(
             var appendToThisShit = $('td.wwnormal.tright.td-price')[x];
             $.get(link,  // url
                 function (data, textStatus, jqXHR) {  // success callback
-                    rent = $(data).find('th:contains("Czynsz (dodatkowo)")').parent().find('strong').text();
+                    rent = $(data).find('p:contains("Czynsz (dodatkowo)")').parent().text();
                     console.log(rent);
                     const rentDiv = document.createElement("div");
                     rentDiv.className = "space inlblk rel";
